@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Enfermeiros</mat-card-title>
+        <mat-card-subtitle>Cadastro do Enfermeiro</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form class="normal-form" [formGroup]="form" autocomplete="off">
+            <mat-grid-list cols="2" rowHeight="300px">
+                <mat-grid-tile>
+                    <div class="controles-container">
+                        <mat-form-field class="full-width">
+                            <mat-label>Nome</mat-label>
+                            <input matInput placeholder="Nome do Hospital" formControlName="fullName">
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <mat-label>Coren</mat-label>
+                            <input matInput placeholder="COREN" formControlName="coren">
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <mat-label>CPF</mat-label>
+                            <input matInput placeholder="CPF do Enfermeiro" formControlName="cpfNumber"
+                                mask="000.000.000-00">
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <mat-form-field>
+                                <mat-label>Data de Nascimento</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="birthDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button (click)="onSubmit()"><i class="material-icons"> done_outline </i> Salvar</button>
+        <button mat-button routerLink="/hospitals"><i class="material-icons"> arrow_back_ios </i> Voltar</button>
+    </mat-card-actions>
+</mat-card>

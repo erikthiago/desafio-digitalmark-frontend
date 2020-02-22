@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-actions>
+        <button mat-button routerLink="/hospital-add"><i class="material-icons"> add </i> Novo</button>
+    </mat-card-actions>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Hospitais</mat-card-title>
+        <mat-card-subtitle>Lista de Hospitais</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div [hidden]="!(dataSource.data.length == 0 || dataSource == null)" class="mat-card-content-text">
+            <h3>
+                Não há itens a serem exibidos.
+            </h3>
+        </div>
+
+        <div [hidden]="!(dataSource.data.length > 0)">
+
+            <mat-table [dataSource]="dataSource">
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="hospitalName">
+                    <mat-header-cell *matHeaderCellDef> Nome do Hospital </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.fullName}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; let even = even; columns: displayedColumns;"
+                    routerLink="/hospital-details/{{row.id}}" class="cursor-row-table">
+                </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

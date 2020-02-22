@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.cursor-row-table {
+  cursor: pointer;
+}
+
+.mat-card-content-text {
+  margin: 0 16px;
+}
+
+.form {
+  width: 100%;
+}
+
+.intput-full-width {
+  width: 100%;
+}
+
+form.normal-form {
+  margin: 10px;
+}
+
+.controles-container{
+  width: 100%;
+  padding: 5%;    
+}
+
+.full-width {
+  width: 100%;
+}

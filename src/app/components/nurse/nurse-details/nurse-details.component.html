@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-actions>
+        <button mat-button routerLink="/nurse-edit/{{nurse.id}}/{{hospitalid}}"><i class="material-icons"> edit </i> Editar</button>
+        <button mat-button (click)="deleteItem()"><i class="material-icons"> delete_outline </i> Excluir</button>
+    </mat-card-actions>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Enfermeiros</mat-card-title>
+        <mat-card-subtitle>Detalhe do Enfermeiro</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="mat-card-content-text">
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <label><b>Nome</b></label>
+                        <p>{{ nurse.fullName }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label><b>COREN</b></label>
+                        <p>{{ nurse.coren }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label><b>CPF</b></label>
+                        <p>{{nurse.cpfNumber | mask: '000.000.000-00'}}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label><b>Data de Nascimento</b></label>
+                        <p>{{nurse.birthDate | date: 'dd/MM/yyyy'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button routerLink="/hospital-details/{{hospitalid}}"><i class="material-icons"> arrow_back_ios </i> Voltar</button>
+    </mat-card-actions>
+</mat-card>

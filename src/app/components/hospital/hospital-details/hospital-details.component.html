@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-actions>
+        <button mat-button routerLink="/hospital-edit/{{hospital.id}}"><i class="material-icons"> edit </i> Editar</button>
+        <button mat-button (click)="deleteItem()"><i class="material-icons"> delete_outline </i> Excluir</button>
+    </mat-card-actions>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Hospitais</mat-card-title>
+        <mat-card-subtitle>Detalhe do Hospital</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="mat-card-content-text">
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <label><b>Nome</b></label>
+                        <p>{{ hospital.fullName }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label><b>Endereço</b></label>
+                        <p>{{ hospital.address }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label><b>CNPJ</b></label>
+                        <p>{{hospital.cnpjNumber | mask: '00.000.000/0000-00'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<app-nurses [dataSource]="dataSource" [hospitalId]="hospital.id"></app-nurses>
+
+<mat-card>
+    <mat-card-actions>
+        <button mat-button routerLink="/hospitals"><i class="material-icons"> arrow_back_ios </i> Voltar</button>
+    </mat-card-actions>
+</mat-card>
